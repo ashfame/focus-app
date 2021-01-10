@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>FOCUS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="/public/build/tailwind.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="bg-gray-100 py-4 flex text-center">
+				<span v-for="(day,index) in days" :class="{ 'bg-gray-200': currentDay == index, 'text-gray-600': currentDay == index }" class="flex-auto inline-block uppercase p-2 mx-4 m-auto text-gray-400 rounded">{{ day }}</span>
+			</div>
+			<div class="sm:flex p-2">
+				<div class="flex-1 p-2">
+					<div class="p-2 pb-4">
+						<span class="block uppercase py-2 text-gray-500 bg-white border-8 border-gray-100 text-center rounded-t-lg">micro-saas</span>
+						<div class="bg-gray-100 p-4 text-center">
+							<div class="flex-row">
+								<span v-on:click="toggleHour(1)" :class="{ 'bg-red-400': hr[1] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(2)" :class="{ 'bg-red-400': hr[2] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(3)" :class="{ 'bg-red-400': hr[3] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(4)" :class="{ 'bg-red-400': hr[4] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(5)" :class="{ 'bg-red-400': hr[5] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+							<div class="flex-row">
+								<span v-on:click="toggleHour(6)" :class="{ 'bg-red-400': hr[6] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(7)" :class="{ 'bg-red-400': hr[7] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(8)" :class="{ 'bg-red-400': hr[8] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(9)" :class="{ 'bg-red-400': hr[9] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(10)" :class="{ 'bg-red-400': hr[10] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+							<div class="flex-row">
+								<span v-on:click="toggleHour(11)" :class="{ 'bg-red-400': hr[11] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(12)" :class="{ 'bg-red-400': hr[12] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(13)" :class="{ 'bg-red-400': hr[13] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(14)" :class="{ 'bg-red-400': hr[14] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(15)" :class="{ 'bg-red-400': hr[15] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+						</div>
+					</div>
+					<div class="p-2">
+						<span class="block uppercase py-2 text-gray-500 bg-white border-8 border-gray-100 text-center rounded-t-lg">write blog</span>
+						<div class="bg-gray-100 p-4 text-center">
+							<div class="flex-row">
+								<span v-on:click="toggleHour(16)" :class="{ 'bg-red-400': hr[16] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(17)" :class="{ 'bg-red-400': hr[17] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(18)" :class="{ 'bg-red-400': hr[18] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(19)" :class="{ 'bg-red-400': hr[19] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(20)" :class="{ 'bg-red-400': hr[20] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex-1 p-2">
+					<div class="p-2 pb-4">
+						<span class="block uppercase py-2 text-gray-500 bg-white border-8 border-gray-100 text-center rounded-t-lg">consultancy</span>
+						<div class="bg-gray-100 p-4 text-center">
+							<div class="flex-row">
+								<span v-on:click="toggleHour(21)" :class="{ 'bg-red-400': hr[21] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(22)" :class="{ 'bg-red-400': hr[22] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(23)" :class="{ 'bg-red-400': hr[23] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(24)" :class="{ 'bg-red-400': hr[24] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(25)" :class="{ 'bg-red-400': hr[25] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+							<div class="flex-row">
+								<span v-on:click="toggleHour(26)" :class="{ 'bg-red-400': hr[26] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(27)" :class="{ 'bg-red-400': hr[27] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(28)" :class="{ 'bg-red-400': hr[28] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(29)" :class="{ 'bg-red-400': hr[29] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(30)" :class="{ 'bg-red-400': hr[30] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+						</div>
+					</div>
+					<div class="p-2">
+						<span class="block uppercase py-2 text-gray-500 bg-white border-8 border-gray-100 text-center rounded-t-lg">write books</span>
+						<div class="bg-gray-100 p-4 text-center">
+							<div class="flex-row">
+								<span v-on:click="toggleHour(31)" :class="{ 'bg-red-400': hr[31] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(32)" :class="{ 'bg-red-400': hr[32] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(33)" :class="{ 'bg-red-400': hr[33] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(34)" :class="{ 'bg-red-400': hr[34] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(35)" :class="{ 'bg-red-400': hr[35] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+							<div class="flex-row">
+								<span v-on:click="toggleHour(36)" :class="{ 'bg-red-400': hr[36] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(37)" :class="{ 'bg-red-400': hr[37] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(38)" :class="{ 'bg-red-400': hr[38] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(39)" :class="{ 'bg-red-400': hr[39] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+								<span v-on:click="toggleHour(40)" :class="{ 'bg-red-400': hr[40] }" class="inline-block bg-gray-300 p-4 hover:bg-red-400 cursor-pointer rounded"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex w-full bg-gray-100 p-4 pt-6">
+				<span class="flex-none text-gray-400" title="Just Do it!">
+					<svg class="mt-1 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+				</span>
+				<div class="flex-auto text-center">
+					<span v-for="todo in todos" v-on:click="toggleTodo(todo.id)" :title="todo.content" :class="{ 'bg-yellow-200': todo.completed }" class="inline-block bg-gray-300 p-4 mr-1 hover:bg-yellow-200 cursor-pointer rounded"></span>
+				</div>
+				<div class="flex-none text-gray-400">
+					<a :href="bcAPIURL" target="_blank">
+						<svg class="mt-1 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="/src/vue.js"></script>
+		<script src="/src/main.js"></script>
+	</body>
+</html>
