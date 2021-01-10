@@ -31,3 +31,7 @@ I copy my Basecamp2's API JSON in localStorage for this to load, but you simply 
 ```
 
 Currently I keep it open on one screen along side terminal while I work. I always want this in front of my eyes. You can set it as your Chrome's new tab view as well but you will have to run your local server for it.
+
+Will share my results of this experiment on blog/twitter in a few weeks! ✌️
+
+Follow me on Twitter: [@ashfame](https://twitter.com/ashfame)
