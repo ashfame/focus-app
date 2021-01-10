@@ -3,6 +3,8 @@ FOCUS
 
 A simple Vue.js based Single Page Application (SPA) to manage my weekly focussed time (40hrs) divided into 4 main areas.
 
+![app ui](./focus-app-ui.png)
+
 The idea is to not manage time, but make sure core focus areas get the attention you want on a weekly basis. The UI gives a progress of your weekly goal and helps you infer whether you are wasting time with not so important tasks (busy in productivity theatre) or doing the tasks that matter the most to you.
 
 Anything outside of those items, are an overhead or errands, which shouldn't steal away your time, hence has lower visual priority as well.
