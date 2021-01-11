@@ -7,8 +7,11 @@
 	</head>
 	<body>
 		<div id="app">
-			<div class="bg-gray-100 py-4 flex text-center">
-				<span v-for="(day,index) in days" :class="{ 'bg-gray-200': currentDay == index, 'text-gray-600': currentDay == index }" class="flex-auto inline-block uppercase p-2 mx-4 m-auto text-gray-400 rounded">{{ day }}</span>
+			<div class="bg-gray-100 py-4 flex text-center px-1">
+				<span v-for="(day,index) in days" :class="{ 'bg-gray-200 text-gray-600 border-4 border-gray-100 rounded-xl': currentDay == index }" class="flex-auto inline-block uppercase p-1 sm:p-2 md:px-2 sm:mx-4 m-auto text-gray-400 rounded-md">
+					<span class="hidden sm:inline">{{ day }}</span>
+					<span class="sm:hidden">{{ day | firstAlphabetOfDay }}</span>
+				</span>
 			</div>
 			<div class="sm:flex p-2">
 				<div class="flex-1 p-2">
@@ -92,16 +95,16 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex w-full bg-gray-100 p-4 pt-6">
-				<span class="flex-none text-gray-400" title="Just Do it!">
-					<svg class="mt-1 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+			<div class="flex w-full bg-gray-100 p-4">
+				<span class="flex-none text-gray-400 inline align-middle" title="Just Do it!">
+					<svg class="mt-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
 				</span>
-				<div class="flex-auto text-center">
-					<span v-for="todo in todos" v-on:click="toggleTodo(todo.id)" :title="todo.content" :class="{ 'bg-yellow-200': todo.completed }" class="inline-block bg-gray-300 p-4 mr-1 hover:bg-yellow-200 cursor-pointer rounded"></span>
+				<div class="flex-auto text-center pt-1">
+					<span v-for="todo in todos" v-on:click="toggleTodo(todo.id)" :title="todo.content" :class="{ 'bg-yellow-200': todo.completed }" class="inline-block bg-gray-300 p-4 mr-1 mb-1 hover:bg-yellow-200 cursor-pointer rounded"></span>
 				</div>
 				<div class="flex-none text-gray-400">
 					<a :href="bcAPIURL" target="_blank">
-						<svg class="mt-1 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+						<svg class="mt-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
 					</a>
 				</div>
 			</div>
