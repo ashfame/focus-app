@@ -64,7 +64,7 @@ new Vue({
 			var todos = JSON.parse( localStorage.getItem('todos') );
 			// remove todos that are beyond this week
 			for(var i=0; i<todos.length; i++) {
-				if ( true || todos[i].due_on <= this.weekEnd ) {
+				if ( todos[i].due_on <= this.weekEnd ) {
 					this.todos.push(todos[i]);
 				}
 			}
