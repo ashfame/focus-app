@@ -70,10 +70,6 @@ new Vue({
 			}
 		},
 		toggleHour: function(n) {
-			// n--;
-			// if (debug) {
-			// 	console.log('hour box clicked:', n + 1,'index: ', n)
-			// }
 			// let Vue be made aware of array update explicitly, so that UI can reflect
 			Vue.set(this.hr, n, ! this.hr[n]);
 			// save in localStorage
