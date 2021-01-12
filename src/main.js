@@ -31,12 +31,11 @@ new Vue({
 		// 40hrs focus hrs commitment
 		// see if we have info saved in localStorage first
 		var s = localStorage.getItem('savedHours');
-		try {
-			this.hr = JSON.parse(s);
-		} catch (error) {}
-
-		// and if not, then load default false values
-		if ( ! this.hr.length ) {
+		if (s) {
+			try {
+				this.hr = JSON.parse(s);
+			} catch (error) {}
+		} else {
 			this.hr= [];
 			for (var i=1; i<=40; i++) {
 				this.hr.push(false);
@@ -67,10 +66,12 @@ new Vue({
 		},
 		loadBasecampTodos: function() {
 			var todos = JSON.parse( localStorage.getItem('todos') );
-			// remove todos that are beyond this week
-			for(var i=0; i<todos.length; i++) {
-				if ( todos[i].due_on <= this.weekEnd ) {
-					this.todos.push(todos[i]);
+			// don't care about todos that are beyond this week
+			if (todos) {
+				for(var i=0; i<todos.length; i++) {
+					if ( todos[i].due_on <= this.weekEnd ) {
+						this.todos.push(todos[i]);
+					}
 				}
 			}
 		},
