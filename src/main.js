@@ -36,7 +36,6 @@ new Vue({
 				this.hr = JSON.parse(s);
 			} catch (error) {}
 		} else {
-			this.hr= [];
 			for (var i=1; i<=40; i++) {
 				this.hr.push(false);
 			}
@@ -65,14 +64,23 @@ new Vue({
 			}
 		},
 		loadBasecampTodos: function() {
-			var todos = JSON.parse( localStorage.getItem('todos') );
+			try {
+				var todos = JSON.parse( localStorage.getItem('todos') );
+			} catch (error) {}
+
 			// don't care about todos that are beyond this week
 			if (todos) {
 				for(var i=0; i<todos.length; i++) {
-					if ( todos[i].due_on <= this.weekEnd ) {
+					if ( todos[i].due_on && todos[i].due_on <= this.weekEnd ) {
 						this.todos.push(todos[i]);
 					}
 				}
+			} else {
+				// load some defaults for demo
+				console.log('loading sample tasks for demo');
+				this.todos = JSON.parse( '[{ "id": 1, "content": "Launch rocket", "completed": false }, { "id": 2, "content": "Short Banks", "completed": true }, { "id": 3, "content": "Buy Bitcoin", "completed": true }]' );
+				// create empty entry in localStorage for easy edit
+				localStorage.setItem('todos','');
 			}
 		},
 		toggleHour: function(n) {

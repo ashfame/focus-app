@@ -5,6 +5,8 @@ A simple Vue.js based Single Page Application (SPA) to manage my weekly focussed
 
 ![app ui](./focus-app-ui.png)
 
+Check out the [Demo](https://focus-app-ashfame.vercel.app/) that stores status in localStorage.
+
 The idea is to not manage time, but make sure core focus areas get the attention you want on a weekly basis. The UI gives a progress of your weekly goal and helps you infer whether you are wasting time with not so important tasks (busy in productivity theatre) or doing the tasks that matter the most to you.
 
 Anything outside of those items, are an overhead or errands, which shouldn't steal away your time, hence has lower visual priority as well.
@@ -15,7 +17,7 @@ I copy my Basecamp2's API JSON in localStorage for this to load, but you simply 
   {
     "id": 1,
     "content": "Launch rocket",
-    "completed": true
+    "completed": false
   },
   {
     "id": 2,
