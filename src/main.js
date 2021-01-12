@@ -15,7 +15,7 @@ new Vue({
 		currentDay: 0,
 		weekStart: '',
 		weekEnd: '',
-		bcAPIURL: '',
+		bcAPIURL: '', // simply shown as a link in UI
 		hr : [],
 		todos: [],
 		year: 2021

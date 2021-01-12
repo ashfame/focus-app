@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "css": "postcss src/tailwind.css -o public/build/tailwind.css",
+    "copy-vuejs": "cp src/vue.js public/build/vue.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
