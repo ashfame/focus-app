@@ -41,8 +41,8 @@ new Vue({
 			}
 		}
 		
-		// figure out dates on a loop, every hour so that upon a new day, it detects it soon enough
-		setTimeout(this.figureOutDates,1000*60*60)
+		// figure out dates on a loop, every 5 mins so that upon a new day, it detects it quick enough
+		setInterval(this.figureOutDates,5*60*1000)
 	},
 	filters: {
 		firstAlphabetOfDay: function(value) {
