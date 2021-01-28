@@ -18,6 +18,7 @@ new Vue({
 		bcAPIURL: '', // simply shown as a link in UI
 		hr : [],
 		todos: [],
+		documentTitle: '',
 		year: 2021
 	},
 	beforeMount: function() {
@@ -43,6 +44,10 @@ new Vue({
 		
 		// figure out dates on a loop, every 5 mins so that upon a new day, it detects it quick enough
 		setInterval(this.figureOutDates,5*60*1000)
+
+		// for showing protected hours in title bar
+		this.documentTitle = document.title;
+		this.updateTitle();
 	},
 	filters: {
 		firstAlphabetOfDay: function(value) {
@@ -83,11 +88,23 @@ new Vue({
 				localStorage.setItem('todos','');
 			}
 		},
+		updateTitle: function() {
+			var protectedHours = 0;
+			for(var i=0;i<this.hr.length;i++){
+				if ( this.hr[i] ) {
+					protectedHours++;
+				}
+			}
+
+			document.title = this.documentTitle + ' (' + protectedHours + ')';
+		},
 		toggleHour: function(n) {
 			// let Vue be made aware of array update explicitly, so that UI can reflect
 			Vue.set(this.hr, n, ! this.hr[n]);
 			// save in localStorage
 			localStorage.setItem('savedHours',JSON.stringify(this.hr));
+
+			this.updateTitle();
 		},
 		toggleTodo: function(id) {
 			for(var i=0;i<this.todos.length;i++){
@@ -97,6 +114,8 @@ new Vue({
 			}
 			// save in localStorage
 			localStorage.setItem('todos',JSON.stringify(this.todos));
+
+			this.updateTitle();
 		}
 	}
 });
